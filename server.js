@@ -4,7 +4,7 @@ const schema = require("./schema");
 const mongoose = require("mongoose");
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: true }));
 
 app.use(
   "/graphql",
