@@ -9,6 +9,14 @@ const {
   GraphQLFloat,
 } = require("graphql");
 
+// Page Type
+const PageType = new GraphQLObjectType({
+  name: "Page",
+  fields: () => ({
+    results: { type: new GraphQLList(GameType) },
+  }),
+});
+
 // Game Type
 const GameType = new GraphQLObjectType({
   name: "Game",
@@ -26,6 +34,15 @@ const GameType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
+    page: {
+      type: PageType,
+      args: {
+        num: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        return axios.get(`https://api.rawg.io/api/games?page=${args.num}`).then((res) => res.data);
+      },
+    },
     game: {
       type: GameType,
       args: {
@@ -43,20 +60,3 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery,
 });
-
-// General Type
-// const GeneralType = new GraphQLObjectType({
-//   name: "General",
-//   fields: () => ({
-//     next: { type: GraphQLString },
-//     previous: { type: GraphQLString },
-//     results: { type: new GraphQLList(GameType) },
-//   }),
-// });
-
-// general: {
-//   type: GeneralType,
-//   resolve(parent, args) {
-//     return axios.get("https://api.rawg.io/api/games").then((res) => res.data);
-//   },
-// },
