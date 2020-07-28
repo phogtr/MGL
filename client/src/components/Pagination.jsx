@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 const Pagination = ({ page, setPage, pageArray }) => {
   const onPage = (p) => {
@@ -34,22 +35,34 @@ const Pagination = ({ page, setPage, pageArray }) => {
             Previous
           </a>
         </li>
-        {pageArray.map((p) =>
-          p === page ? (
-            <li key={p} className="page-item active">
-              <a onClick={() => onPage(p)} href="#" className="page-link">
-                {p}
-                <span className="sr-only"></span>
-              </a>
-            </li>
-          ) : (
-            <li key={p} className="page-item">
-              <a onClick={() => onPage(p)} href="#" className="page-link">
-                {p}
-              </a>
-            </li>
-          )
-        )}
+        {pageArray.map((p) => (
+          // p === page ? (
+          //   <li key={p} className="page-item active">
+          //     <a onClick={() => onPage(p)} href="#" className="page-link">
+          //       {p}
+          //       <span className="sr-only"></span>
+          //     </a>
+          //   </li>
+          // ) : (
+          //   <li key={p} className="page-item">
+          //     <a onClick={() => onPage(p)} href="#" className="page-link">
+          //       {p}
+          //     </a>
+          //   </li>
+          // )
+          <li
+            key={p}
+            className={classNames({
+              "page-item active": p === page,
+              "page-item": p !== page,
+            })}
+          >
+            <a onClick={() => onPage(p)} href="#" className="page-link">
+              {p}
+              <span className="sr-only"></span>
+            </a>
+          </li>
+        ))}
         <li className="page-item">
           <a onClick={() => onPage(-1)} href="#" className="page-link">
             Next
