@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home, Navbar } from "./components";
 import "./App.css";
+import Pagination from "./components/Pagination";
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",
@@ -14,10 +16,15 @@ const App = () => {
 
   return (
     <ApolloProvider client={client}>
-      <Navbar />
-      <div className="container">
-        <Home num={page} setPage={setPage} pageArray={pageArray} />
-      </div>
+      <Router>
+        <Navbar />
+        <div className="container">
+          <Switch>
+            <Home num={page} setPage={setPage} pageArray={pageArray} />
+            <Route exact path={`/${page}`} component={Home} />
+          </Switch>
+        </div>
+      </Router>
     </ApolloProvider>
   );
 };

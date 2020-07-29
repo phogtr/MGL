@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 const Pagination = ({ page, setPage, pageArray }) => {
@@ -36,9 +37,9 @@ const Pagination = ({ page, setPage, pageArray }) => {
             "page-item": page > 1,
           })}
         >
-          <a onClick={() => onPage(-2)} href="#" className="page-link">
+          <Link onClick={() => onPage(-2)} to={`/${page - 1}`} className="page-link">
             Previous
-          </a>
+          </Link>
         </li>
         {pageArray.map((p) => (
           <li
@@ -48,16 +49,16 @@ const Pagination = ({ page, setPage, pageArray }) => {
               "page-item": p !== page,
             })}
           >
-            <a onClick={() => onPage(p)} href="#" className="page-link">
+            <Link onClick={() => onPage(p)} to={`/${p}`} className="page-link">
               {p}
               <span className="sr-only"></span>
-            </a>
+            </Link>
           </li>
         ))}
         <li className="page-item">
-          <a onClick={() => onPage(-1)} href="#" className="page-link">
+          <Link onClick={() => onPage(-1)} to={`/${page + 1}`} className="page-link">
             Next
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
