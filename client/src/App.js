@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import { Home } from "./components";
+import { Home, Navbar } from "./components";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -14,6 +14,7 @@ const App = () => {
 
   return (
     <ApolloProvider client={client}>
+      <Navbar />
       <div className="container">
         <Home num={page} setPage={setPage} pageArray={pageArray} />
       </div>
