@@ -14,15 +14,19 @@ const PAGE_QUERY = gql`
   }
 `;
 
-const Home = ({ num }) => {
+const Home = ({ num, setPage, pageArray }) => {
   return (
     <>
       <h3>Hello Page</h3>
       <Query query={PAGE_QUERY} variables={{ num }}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;
-          if (error) console.log(error);
-          return data.page.results.map((game) => <HomeItem key={game.id} game={game} />);
+          if (error) {
+            console.log(error);
+            return <h4>No Data available</h4>;
+          } else {
+            return <HomeItem data={data} page={num} setPage={setPage} pageArray={pageArray} />;
+          }
         }}
       </Query>
     </>

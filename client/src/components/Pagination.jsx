@@ -30,26 +30,17 @@ const Pagination = ({ page, setPage, pageArray }) => {
   return (
     <nav>
       <ul className="pagination">
-        <li className="page-item">
+        <li
+          className={classNames({
+            "page-item disabled": page === 1,
+            "page-item": page > 1,
+          })}
+        >
           <a onClick={() => onPage(-2)} href="#" className="page-link">
             Previous
           </a>
         </li>
         {pageArray.map((p) => (
-          // p === page ? (
-          //   <li key={p} className="page-item active">
-          //     <a onClick={() => onPage(p)} href="#" className="page-link">
-          //       {p}
-          //       <span className="sr-only"></span>
-          //     </a>
-          //   </li>
-          // ) : (
-          //   <li key={p} className="page-item">
-          //     <a onClick={() => onPage(p)} href="#" className="page-link">
-          //       {p}
-          //     </a>
-          //   </li>
-          // )
           <li
             key={p}
             className={classNames({
