@@ -13,13 +13,13 @@ const {
 const PageType = new GraphQLObjectType({
   name: "Page",
   fields: () => ({
-    results: { type: new GraphQLList(GameType) },
+    results: { type: new GraphQLList(GamesType) },
   }),
 });
 
-// Game Type
-const GameType = new GraphQLObjectType({
-  name: "Game",
+// Games Type
+const GamesType = new GraphQLObjectType({
+  name: "Games",
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -27,6 +27,28 @@ const GameType = new GraphQLObjectType({
     background_image: { type: GraphQLString },
     rating: { type: GraphQLFloat },
     reviews_count: { type: GraphQLInt },
+  }),
+});
+
+const GamesDetailType = new GraphQLObjectType({
+  name: "GamesDetail",
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    released: { type: GraphQLString },
+    background_image: { type: GraphQLString },
+    rating: { type: GraphQLFloat },
+    reviews_count: { type: GraphQLInt },
+    description: { type: GraphQLString },
+    updated: { type: GraphQLString },
+    developers: { type: new GraphQLList(DevelopersType) },
+  }),
+});
+
+const DevelopersType = new GraphQLObjectType({
+  name: "Developers",
+  fields: () => ({
+    name: { type: GraphQLString },
   }),
 });
 
@@ -44,7 +66,7 @@ const RootQuery = new GraphQLObjectType({
       },
     },
     game: {
-      type: GameType,
+      type: GamesDetailType,
       args: {
         name: { type: GraphQLString },
       },

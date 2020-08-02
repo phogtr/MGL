@@ -9,6 +9,10 @@ const PAGE_QUERY = gql`
       results {
         id
         name
+        released
+        background_image
+        rating
+        reviews_count
       }
     }
   }

@@ -4,7 +4,6 @@ import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home, Navbar } from "./components";
 import "./App.css";
-import Pagination from "./components/Pagination";
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",
