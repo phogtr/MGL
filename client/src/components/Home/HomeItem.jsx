@@ -1,24 +1,26 @@
 import React from "react";
 import Pagination from "../Pagination";
+import "./Home.css";
 
 const HomeItem = ({ data, page, setPage, pageArray }) => {
-  const blockStyle = {
-    padding: "10px",
-    border: "1px solid #ccc",
-  };
-
   return (
-    <>
+    <div className="items-list">
       {data.page.results.map((game) => (
-        <div key={game.id} style={blockStyle}>
-          <p>{game.name}</p>
-          <p>{game.released}</p>
-          <p>{game.rating}</p>
-          <p>{game.reviews_count}</p>
-        </div>
+        <a href="#" key={game.id} className="items-block">
+          <div>
+            <img src={game.background_image} alt={`${game.name}`} className="content-img" />
+          </div>
+          <div className="item-info text-overflow">
+            <span className="text-overflow">{game.name}</span>
+            <div>{game.released}</div>
+          </div>
+          <div className="item-score">
+            <span className="item-rating">{game.rating}</span>
+          </div>
+        </a>
       ))}
       <Pagination page={page} setPage={setPage} pageArray={pageArray} />
-    </>
+    </div>
   );
 };
 

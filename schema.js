@@ -26,7 +26,6 @@ const GamesType = new GraphQLObjectType({
     released: { type: GraphQLString },
     background_image: { type: GraphQLString },
     rating: { type: GraphQLFloat },
-    reviews_count: { type: GraphQLInt },
   }),
 });
 

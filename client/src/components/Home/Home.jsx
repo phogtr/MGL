@@ -12,7 +12,6 @@ const PAGE_QUERY = gql`
         released
         background_image
         rating
-        reviews_count
       }
     }
   }

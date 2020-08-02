@@ -1,0 +1,43 @@
+.items-block {
+  display: grid;
+  grid-template-columns: 120px 2fr 1fr;
+  margin-bottom: 5px;
+  border: 1px solid #cccccc;
+}
+
+.content-img {
+  width: 120px;
+  height: 46px;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-info {
+  margin-left: 0.5rem;
+}
+
+.item-score {
+  justify-self: end;
+  align-self: center;
+}
+
+.item-rating {
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .items-block {
+    grid-template-columns: 108px 2fr 1fr;
+  }
+  .content-img {
+    width: 108px;
+    height: 40px;
+  }
+  .items-list {
+    font-size: 12px;
+  }
+}
