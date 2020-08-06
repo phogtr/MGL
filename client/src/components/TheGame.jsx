@@ -3,8 +3,8 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
 const THEGAME_QUERY = gql`
-  query TheGameQuery($name: String!) {
-    game(name: $name) {
+  query TheGameQuery($id: Int!) {
+    game(id: $id) {
       name
       released
       background_image
@@ -19,7 +19,8 @@ const THEGAME_QUERY = gql`
 `;
 
 const TheGame = (props) => {
-  console.log(props.match.params);
+  let game = props.match.params;
+  console.log(game.name, game.id);
   return (
     <div>
       <h3>Game Title</h3>

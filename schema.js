@@ -67,12 +67,12 @@ const RootQuery = new GraphQLObjectType({
     game: {
       type: GamesDetailType,
       args: {
-        name: { type: GraphQLString },
+        id: { type: GraphQLInt },
       },
       resolve(parent, args) {
-        name = args.name;
-        name = name.replace(/\s+/g, "-").toLowerCase();
-        return axios.get(`https://api.rawg.io/api/games/${name}`).then((res) => res.data);
+        // name = args.name;
+        // name = name.replace(/\s+/g, "-").toLowerCase();
+        return axios.get(`https://api.rawg.io/api/games/${args.id}`).then((res) => res.data);
       },
     },
   },
