@@ -37,7 +37,7 @@ const Pagination = ({ page, setPage, pageArray }) => {
             "page-item": page > 1,
           })}
         >
-          <Link onClick={() => onPage(-2)} to={`/${page - 1}`} className="page-link">
+          <Link onClick={() => onPage(-2)} to={`/games/${page - 1}`} className="page-link">
             Previous
           </Link>
         </li>
@@ -49,14 +49,14 @@ const Pagination = ({ page, setPage, pageArray }) => {
               "page-item": p !== page,
             })}
           >
-            <Link onClick={() => onPage(p)} to={`/${p}`} className="page-link">
+            <Link onClick={() => onPage(p)} to={`/games/${p}`} className="page-link">
               {p}
               <span className="sr-only"></span>
             </Link>
           </li>
         ))}
         <li className="page-item">
-          <Link onClick={() => onPage(-1)} to={`/${page + 1}`} className="page-link">
+          <Link onClick={() => onPage(-1)} to={`/games/${page + 1}`} className="page-link">
             Next
           </Link>
         </li>

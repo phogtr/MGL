@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home, Navbar } from "./components";
+import { ItemsList, Navbar, TheGame } from "./components";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -19,8 +19,15 @@ const App = () => {
         <Navbar />
         <div className="container">
           <Switch>
-            <Home num={page} setPage={setPage} pageArray={pageArray} />
-            <Route exact path={`/${page}`} component={Home} />
+            <ItemsList
+              exact
+              path={`/games/${page}`}
+              num={page}
+              setPage={setPage}
+              pageArray={pageArray}
+            />
+            {/* <Route exact path={`/${page}`} component={Home} /> */}
+            <Route exact path={`/game/:id/:name`} component={TheGame} />
           </Switch>
         </div>
       </Router>

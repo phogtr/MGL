@@ -1,7 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import HomeItem from "./HomeItem";
+import EachItem from "./EachItem";
 
 const PAGE_QUERY = gql`
   query PageQuery($num: Int!) {
@@ -17,7 +17,7 @@ const PAGE_QUERY = gql`
   }
 `;
 
-const Home = ({ num, setPage, pageArray }) => {
+const ItemsList = ({ num, setPage, pageArray }) => {
   return (
     <>
       <h3>Hello Page</h3>
@@ -28,7 +28,7 @@ const Home = ({ num, setPage, pageArray }) => {
             console.log(error);
             return <h4>No Data available</h4>;
           } else {
-            return <HomeItem data={data} page={num} setPage={setPage} pageArray={pageArray} />;
+            return <EachItem data={data} page={num} setPage={setPage} pageArray={pageArray} />;
           }
         }}
       </Query>
@@ -36,4 +36,4 @@ const Home = ({ num, setPage, pageArray }) => {
   );
 };
 
-export default Home;
+export default ItemsList;

@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
-import "./Home.css";
+import "./Items.css";
 
-const HomeItem = ({ data, page, setPage, pageArray }) => {
+const EachItem = ({ data, page, setPage, pageArray }) => {
   return (
     <div className="items-list">
       {data.page.results.map((game) => (
-        <a href="#" key={game.id} className="items-block">
+        <Link to={`/game/${game.id}/${game.name}`} key={game.id} className="items-block">
           <div>
             <img src={game.background_image} alt={`${game.name}`} className="content-img" />
           </div>
@@ -17,11 +18,11 @@ const HomeItem = ({ data, page, setPage, pageArray }) => {
           <div className="item-score">
             <span className="item-rating">{game.rating}</span>
           </div>
-        </a>
+        </Link>
       ))}
       <Pagination page={page} setPage={setPage} pageArray={pageArray} />
     </div>
   );
 };
 
-export default HomeItem;
+export default EachItem;
