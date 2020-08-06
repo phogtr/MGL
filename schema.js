@@ -35,6 +35,7 @@ const GamesDetailType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    alternative_names: { type: GraphQLList(GraphQLString) },
     released: { type: GraphQLString },
     background_image: { type: GraphQLString },
     rating: { type: GraphQLFloat },
