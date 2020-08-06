@@ -29,6 +29,7 @@ const GamesType = new GraphQLObjectType({
   }),
 });
 
+// Game Detail Type
 const GamesDetailType = new GraphQLObjectType({
   name: "GamesDetail",
   fields: () => ({
@@ -41,11 +42,21 @@ const GamesDetailType = new GraphQLObjectType({
     description: { type: GraphQLString },
     updated: { type: GraphQLString },
     developers: { type: new GraphQLList(DevelopersType) },
+    genres: { type: new GraphQLList(GenresType) },
   }),
 });
 
+// Developers Type
 const DevelopersType = new GraphQLObjectType({
   name: "Developers",
+  fields: () => ({
+    name: { type: GraphQLString },
+  }),
+});
+
+// Genres Type
+const GenresType = new GraphQLObjectType({
+  name: "Genres",
   fields: () => ({
     name: { type: GraphQLString },
   }),
