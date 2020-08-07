@@ -17,10 +17,10 @@ const PAGE_QUERY = gql`
   }
 `;
 
-const ItemsList = ({ num, setPage, pageArray }) => {
+const ItemsQuery = ({ num, setPage, pageArray }) => {
   return (
     <>
-      <h3>Hello Page</h3>
+      <h3>Item List</h3>
       <Query query={PAGE_QUERY} variables={{ num }}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;
@@ -28,7 +28,16 @@ const ItemsList = ({ num, setPage, pageArray }) => {
             console.log(error);
             return <h4>No Data available</h4>;
           } else {
-            return <EachItem data={data} page={num} setPage={setPage} pageArray={pageArray} />;
+            let name = undefined;
+            return (
+              <EachItem
+                name={name}
+                data={data.page.results}
+                page={num}
+                setPage={setPage}
+                pageArray={pageArray}
+              />
+            );
           }
         }}
       </Query>
@@ -36,4 +45,4 @@ const ItemsList = ({ num, setPage, pageArray }) => {
   );
 };
 
-export default ItemsList;
+export default ItemsQuery;

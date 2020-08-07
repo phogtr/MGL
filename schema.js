@@ -87,6 +87,18 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`https://api.rawg.io/api/games/${args.id}`).then((res) => res.data);
       },
     },
+    filter: {
+      type: PageType,
+      args: {
+        num: { type: GraphQLInt },
+        name: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return axios
+          .get(`https://api.rawg.io/api/games?page=${args.num}&search=${args.name}`)
+          .then((res) => res.data);
+      },
+    },
   },
 });
 

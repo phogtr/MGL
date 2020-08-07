@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
 import "./Items.css";
 
-const EachItem = ({ data, page, setPage, pageArray }) => {
+const EachItem = ({ name, data, page, setPage, pageArray }) => {
   return (
     <div className="items-list">
-      {data.page.results.map((game) => (
+      {data.map((game) => (
         <Link to={`/game/${game.id}/${game.name}`} key={game.id} className="items-block">
           <div>
             <img src={game.background_image} alt={`${game.name}`} className="content-img" />
@@ -20,7 +20,7 @@ const EachItem = ({ data, page, setPage, pageArray }) => {
           </div>
         </Link>
       ))}
-      <Pagination page={page} setPage={setPage} pageArray={pageArray} />
+      <Pagination name={name} page={page} setPage={setPage} pageArray={pageArray} />
     </div>
   );
 };

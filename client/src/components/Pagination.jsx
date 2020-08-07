@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
-const Pagination = ({ page, setPage, pageArray }) => {
+const Pagination = ({ name, page, setPage, pageArray }) => {
+  let filterUrl = `/search=${name}`;
+
   const onPage = (p) => {
     if (p === -2) {
       p = page - 1;
@@ -37,7 +39,11 @@ const Pagination = ({ page, setPage, pageArray }) => {
             "page-item": page > 1,
           })}
         >
-          <Link onClick={() => onPage(-2)} to={`/games/${page - 1}`} className="page-link">
+          <Link
+            onClick={() => onPage(-2)}
+            to={`/games/${page - 1}${name === undefined ? "" : filterUrl}`}
+            className="page-link"
+          >
             Previous
           </Link>
         </li>
@@ -49,14 +55,22 @@ const Pagination = ({ page, setPage, pageArray }) => {
               "page-item": p !== page,
             })}
           >
-            <Link onClick={() => onPage(p)} to={`/games/${p}`} className="page-link">
+            <Link
+              onClick={() => onPage(p)}
+              to={`/games/${p}${name === undefined ? "" : filterUrl}`}
+              className="page-link"
+            >
               {p}
               <span className="sr-only"></span>
             </Link>
           </li>
         ))}
         <li className="page-item">
-          <Link onClick={() => onPage(-1)} to={`/games/${page + 1}`} className="page-link">
+          <Link
+            onClick={() => onPage(-1)}
+            to={`/games/${page + 1}${name === undefined ? "" : filterUrl}`}
+            className="page-link"
+          >
             Next
           </Link>
         </li>
