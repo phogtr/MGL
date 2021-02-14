@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import "./Pages.css"
 
 const Pagination = ({ name, page, setPage, pageArray }) => {
   let filterUrl = `/search=${name}`;

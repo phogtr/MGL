@@ -7,17 +7,30 @@ const THEGAME_QUERY = gql`
   query TheGameQuery($queryId: Int!) {
     game(id: $queryId) {
       name
-      alternative_names
       released
       background_image
       rating
       reviews_count
+      description_raw
       updated
+      website
+      reddit_url
       developers {
+        name
+      }
+      publishers {
         name
       }
       genres {
         name
+      }
+      platforms {
+        platform {
+          name
+        }
+      }
+      clip {
+        clip
       }
     }
   }

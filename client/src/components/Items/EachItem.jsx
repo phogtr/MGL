@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Pagination from "../Pagination";
+import Pagination from "../Pagination/Pagination";
 import "./Items.css";
 
 const EachItem = ({ name, data, page, setPage, pageArray }) => {

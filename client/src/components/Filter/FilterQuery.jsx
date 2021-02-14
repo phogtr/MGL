@@ -1,7 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import EachItem from "./Items/EachItem";
+import EachItem from "../Items/EachItem";
 
 const FILTER_QUERY = gql`
   query FilterQuery($num: Int!, $filter: String!) {

@@ -35,15 +35,19 @@ const GamesDetailType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    alternative_names: { type: GraphQLList(GraphQLString) },
     released: { type: GraphQLString },
     background_image: { type: GraphQLString },
     rating: { type: GraphQLFloat },
     reviews_count: { type: GraphQLInt },
-    description: { type: GraphQLString },
+    description_raw: { type: GraphQLString },
     updated: { type: GraphQLString },
+    website: { type: GraphQLString },
+    reddit_url: { type: GraphQLString },
     developers: { type: new GraphQLList(DevelopersType) },
+    publishers: { type: new GraphQLList(PublishersType) },
     genres: { type: new GraphQLList(GenresType) },
+    platforms: { type: new GraphQLList(PlatformsElemType) },
+    clip: { type: ClipType },
   }),
 });
 
@@ -60,6 +64,34 @@ const GenresType = new GraphQLObjectType({
   name: "Genres",
   fields: () => ({
     name: { type: GraphQLString },
+  }),
+});
+
+const PublishersType = new GraphQLObjectType({
+  name: "Publishers",
+  fields: () => ({
+    name: { type: GraphQLString },
+  }),
+});
+
+const PlatformsElemType = new GraphQLObjectType({
+  name: "PlatformsElem",
+  fields: () => ({
+    platform: { type: PlatformsType },
+  }),
+});
+
+const PlatformsType = new GraphQLObjectType({
+  name: "Platforms",
+  fields: () => ({
+    name: { type: GraphQLString },
+  }),
+});
+
+const ClipType = new GraphQLObjectType({
+  name: "Clip",
+  fields: () => ({
+    clip: { type: GraphQLString },
   }),
 });
 
