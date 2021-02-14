@@ -1,0 +1,13 @@
+.filter-icon:hover {
+  background-color: #ffbb00;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.form-row {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.filter-header {
+  padding-bottom: 20px;
+}

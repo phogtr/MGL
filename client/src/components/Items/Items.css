@@ -29,6 +29,10 @@
   padding-right: 0.5rem;
 }
 
+.item-header {
+  padding-bottom: 20px;
+}
+
 @media (max-width: 720px) {
   .items-block {
     grid-template-columns: 108px 2fr 1fr;
