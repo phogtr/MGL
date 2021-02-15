@@ -127,7 +127,24 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args) {
         return axios
-          .get(`https://api.rawg.io/api/games?page=${args.num}&search=${args.name}`)
+          .get(
+            `https://api.rawg.io/api/games?page=${args.num}&search=${args.name}&search_precise=true`
+          )
+          .then((res) => res.data);
+      },
+    },
+    released: {
+      type: PageType,
+      args: {
+        dateFrom: { type: GraphQLString },
+        dateTo: { type: GraphQLString },
+        num: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        return axios
+          .get(
+            `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&page=${args.num}`
+          )
           .then((res) => res.data);
       },
     },
@@ -137,3 +154,6 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery,
 });
+
+// released within month https://api.rawg.io/api/games?dates=2019-09-01,2019-09-30
+// popular within month/year https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { FilterQuery, FilterForm, ItemsQuery, Navbar, TheGame } from "./components";
+import { FilterQuery, FilterForm, ItemsQuery, Navbar, TheGame, ReleasedQuery } from "./components";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -28,6 +28,7 @@ const App = () => {
             setFilter={setFilter}
           />
           <Switch>
+            <ReleasedQuery exact path={"/"} num={page} />
             <ItemsQuery
               exact
               path={`/games/${page}`}

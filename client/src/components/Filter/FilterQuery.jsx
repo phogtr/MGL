@@ -21,7 +21,7 @@ const FILTER_QUERY = gql`
 const FilterQuery = ({ num, filter, setPage, pageArray }) => {
   return (
     <>
-      <h3 className="filter-header" >Searching results</h3>
+      <h3 className="filter-header" >Searching results: {String(filter).toUpperCase()}</h3>
       <Query query={FILTER_QUERY} variables={{ num, filter }}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;

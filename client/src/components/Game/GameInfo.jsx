@@ -17,12 +17,14 @@ const GameInfo = ({ data }) => {
           <div className="padding-bottom">
             <img className="img-fluid" src={data.background_image} alt={`${data.name}`}/>
           </div>
-          <div className="embed-responsive embed-responsive-16by9">
-            <video className="embed-responsive-item" controls>
-              <source src={data.clip.clip} type="video/mp4" />
-            </video>
-            {/* <iframe className="embed-responsive-item" src={data.clip.clip} allowfullscreen></iframe> */}
-          </div>
+          {data.clip !== null &&
+            <div className="embed-responsive embed-responsive-16by9">
+              <video className="embed-responsive-item" controls>
+                <source src={data.clip.clip} type="video/mp4" />
+              </video>
+              {/* <iframe className="embed-responsive-item" src={data.clip.clip} allowfullscreen></iframe> */}
+            </div>
+          }       
         </div>
         <div className="col-12 col-md-7">
           <div className="info-box">
@@ -45,9 +47,11 @@ const GameInfo = ({ data }) => {
             <div>
               <b>Review count:</b> {data.reviews_count}
             </div>
-            <div className="text-overflow">
-              <b>Official Website:</b> <a className="link-text" href={data.website}>{data.website}</a>
-            </div>
+            {data.website !== "" &&
+              <div className="text-overflow">
+                <b>Official Website:</b> <a className="link-text" href={data.website}>{data.website}</a>
+              </div>
+            }
             {data.reddit_url !== "" &&
               <div className="text-overflow">
                 <b>Reddit:</b> <a className="link-text" href={data.reddit_url}>{data.reddit_url}</a>
@@ -64,7 +68,7 @@ const GameInfo = ({ data }) => {
               )}
             </div>
             <div>
-              <b>Updated:</b> {updatedDate}
+              <b>Last Modified:</b> {updatedDate}
             </div>
           </div>
         </div>
