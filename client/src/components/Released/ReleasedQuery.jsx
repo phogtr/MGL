@@ -15,7 +15,8 @@ const RELEASED_QUERY = gql`
   }
 `;
 
-const ReleasedQuery = ({ num }) => {
+const ReleasedQuery = () => {
+  let num = 1;
   let today = new Date();
   let month = today.getMonth() + 1;
   let year = today.getFullYear();

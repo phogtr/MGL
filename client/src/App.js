@@ -28,7 +28,7 @@ const App = () => {
             setFilter={setFilter}
           />
           <Switch>
-            <ReleasedQuery exact path={"/"} num={page} />
+            <ReleasedQuery exact path={"/"} />
             <ItemsQuery
               exact
               path={`/games/${page}`}

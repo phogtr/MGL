@@ -1,4 +1,5 @@
 import React from "react";
+import "./Released.css";
 
 const ReleasedReview = ({ data }) => {
   let sliceData = data.slice(1, 11);
@@ -20,14 +21,22 @@ const ReleasedReview = ({ data }) => {
             </ol>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img className="d-block w-100" src={data[0].background_image} />
+                <img
+                  className="d-block w-100 rls-img"
+                  src={data[0].background_image}
+                  alt={`${data[0].name}`}
+                />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>{data[0].name}</h5>
                 </div>
               </div>
               {sliceData.map((game) => (
                 <div key={game.id} className="carousel-item">
-                  <img className="d-block w-100" src={game.background_image} />
+                  <img
+                    className="d-block w-100 rls-img"
+                    src={game.background_image}
+                    alt={`${game.name}`}
+                  />
                   <div className="carousel-caption d-none d-md-block">
                     <h5>{game.name}</h5>
                   </div>
