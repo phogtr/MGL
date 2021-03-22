@@ -133,7 +133,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            `https://api.rawg.io/api/games?key=${process.env.MY_KEY}&page=${args.num}&search=${args.name}&search_precise=true`
+            `https://api.rawg.io/api/games?key=${process.env.MY_KEY}&page=${args.num}&search=${args.name}&search_precise=true&ordering=-added`
           )
           .then((res) => res.data);
       },

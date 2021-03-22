@@ -20,7 +20,14 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar />
+        <Navbar
+          setPage={setPage}
+          setFilter={setFilter}
+          setUrlName={setUrlName}
+          pageArray={pageArray}
+          setRelease={setRelease}
+          setNameComps={setNameComps}
+        />
         <div className="container">
           <FilterForm
             setUrlName={setUrlName}
@@ -28,6 +35,7 @@ const App = () => {
             setPage={setPage}
             filter={filter}
             setFilter={setFilter}
+            setRelease={setRelease}
             setNameComps={setNameComps}
           />
           <Switch>

@@ -27,7 +27,6 @@ const ReleasedQuery = ({
   nameComps,
   setNameComps,
 }) => {
-  //let num = 1;
   let today = new Date();
   let month = today.getMonth() + 1;
   let year = today.getFullYear();
@@ -53,9 +52,10 @@ const ReleasedQuery = ({
 
   return (
     <>
+      {release === 0 ? "" : <h3 className="item-header">Recent Released</h3>}
       <Query query={RELEASED_QUERY} variables={{ from, to, num }}>
         {({ loading, error, data }) => {
-          if (loading) return <h4></h4>;
+          if (loading) return <></>;
           if (error) {
             console.log(error);
             return <h4>No Data available</h4>;
