@@ -2,7 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import EachItem from "./EachItem";
-import "./Items.css"
+import "./Items.css";
 
 const PAGE_QUERY = gql`
   query PageQuery($num: Int!) {

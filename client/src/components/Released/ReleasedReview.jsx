@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Released.css";
 
 const ReleasedReview = ({ data }) => {
@@ -21,25 +22,29 @@ const ReleasedReview = ({ data }) => {
             </ol>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img
-                  className="d-block w-100 rls-img"
-                  src={data[0].background_image}
-                  alt={`${data[0].name}`}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>{data[0].name}</h5>
-                </div>
+                <Link to={`/game/${data[0].id}/${data[0].name}`} key={data[0].id}>
+                  <img
+                    className="d-block w-100 rls-img"
+                    src={data[0].background_image}
+                    alt={`${data[0].name}`}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>{data[0].name}</h5>
+                  </div>
+                </Link>
               </div>
               {sliceData.map((game) => (
                 <div key={game.id} className="carousel-item">
-                  <img
-                    className="d-block w-100 rls-img"
-                    src={game.background_image}
-                    alt={`${game.name}`}
-                  />
-                  <div className="carousel-caption d-none d-md-block">
-                    <h5>{game.name}</h5>
-                  </div>
+                  <Link to={`/game/${game.id}/${game.name}`} key={game.id}>
+                    <img
+                      className="d-block w-100 rls-img"
+                      src={game.background_image}
+                      alt={`${game.name}`}
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>{game.name}</h5>
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>

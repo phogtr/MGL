@@ -6,5 +6,5 @@
   bottom: 0;
   right: 0;
   position: absolute;
-  box-shadow: inset 0px 0px 300px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0px -130px 70px 20px rgba(0, 0, 0, 0.7);
 }

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const axios = require("axios");
 const {
   GraphQLObjectType,
@@ -105,7 +106,9 @@ const RootQuery = new GraphQLObjectType({
         num: { type: GraphQLInt },
       },
       resolve(parent, args) {
-        return axios.get(`https://api.rawg.io/api/games?page=${args.num}`).then((res) => res.data);
+        return axios
+          .get(`https://api.rawg.io/api/games?key=${process.env.MY_KEY}&page=${args.num}`)
+          .then((res) => res.data);
       },
     },
     game: {
@@ -128,7 +131,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            `https://api.rawg.io/api/games?page=${args.num}&search=${args.name}&search_precise=true`
+            `https://api.rawg.io/api/games?key=${process.env.MY_KEY}&page=${args.num}&search=${args.name}&search_precise=true`
           )
           .then((res) => res.data);
       },
@@ -143,7 +146,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&page=${args.num}`
+            `https://api.rawg.io/api/games?key=${process.env.MY_KEY}&dates=${args.dateFrom}%2C${args.dateTo}&page=${args.num}`
           )
           .then((res) => res.data);
       },
