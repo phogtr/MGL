@@ -2,7 +2,7 @@ import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import EachItem from "../Items/EachItem";
-import "./Filter.css"
+import "./Filter.css";
 
 const FILTER_QUERY = gql`
   query FilterQuery($num: Int!, $filter: String!) {
@@ -18,10 +18,10 @@ const FILTER_QUERY = gql`
   }
 `;
 
-const FilterQuery = ({ num, filter, setPage, pageArray }) => {
+const FilterQuery = ({ num, filter, setPage, pageArray, nameComps }) => {
   return (
     <>
-      <h3 className="filter-header" >Searching results: {String(filter).toUpperCase()}</h3>
+      <h3 className="filter-header">Searching results: {String(filter).toUpperCase()}</h3>
       <Query query={FILTER_QUERY} variables={{ num, filter }}>
         {({ loading, error, data }) => {
           if (loading) return <h4>Loading...</h4>;
@@ -36,6 +36,7 @@ const FilterQuery = ({ num, filter, setPage, pageArray }) => {
                 page={num}
                 setPage={setPage}
                 pageArray={pageArray}
+                nameComps={nameComps}
               />
             );
           }

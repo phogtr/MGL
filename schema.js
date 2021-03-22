@@ -119,7 +119,9 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         // name = args.name;
         // name = name.replace(/\s+/g, "-").toLowerCase();
-        return axios.get(`https://api.rawg.io/api/games/${args.id}`).then((res) => res.data);
+        return axios
+          .get(`https://api.rawg.io/api/games/${args.id}?key=${process.env.MY_KEY}`)
+          .then((res) => res.data);
       },
     },
     filter: {
@@ -146,7 +148,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            `https://api.rawg.io/api/games?key=${process.env.MY_KEY}&dates=${args.dateFrom}%2C${args.dateTo}&page=${args.num}`
+            `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&key=${process.env.MY_KEY}&page=${args.num}`
           )
           .then((res) => res.data);
       },

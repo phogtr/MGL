@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import "./Filter.css";
 
-const FilterForm = ({ setUrlName, pageArray, setPage, filter, setFilter }) => {
+const FilterForm = ({ setUrlName, pageArray, setPage, filter, setFilter, setNameComps }) => {
   const history = useHistory();
   const location = useLocation();
   const changeFilter = (e) => {
@@ -16,6 +16,7 @@ const FilterForm = ({ setUrlName, pageArray, setPage, filter, setFilter }) => {
     setPage(1);
     setUrlName(filter);
     setFilter("");
+    setNameComps("");
     for (let i = 0; i < 10; i++) {
       pageArray[i] = i + 1;
     }

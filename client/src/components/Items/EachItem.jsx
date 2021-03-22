@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import "./Items.css";
 
-const EachItem = ({ name, data, page, setPage, pageArray }) => {
+const EachItem = ({ name, data, page, setPage, pageArray, nameComps }) => {
   return (
     <>
       <div className="items-list">
@@ -17,11 +17,17 @@ const EachItem = ({ name, data, page, setPage, pageArray }) => {
               <div>{game.released}</div>
             </div>
             <div className="item-score">
-              <span className="item-rating">{game.rating}</span>
+              <span className="item-rating">{game.rating === 0 ? "" : game.rating}</span>
             </div>
           </Link>
         ))}
-        <Pagination name={name} page={page} setPage={setPage} pageArray={pageArray} />
+        <Pagination
+          name={name}
+          page={page}
+          setPage={setPage}
+          pageArray={pageArray}
+          nameComps={nameComps}
+        />
       </div>
     </>
   );

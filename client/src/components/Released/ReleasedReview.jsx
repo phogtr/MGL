@@ -1,20 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Released.css";
 
-const ReleasedReview = ({ data }) => {
+const ReleasedReview = ({ release, setRelease, data, setNameComps }) => {
+  const history = useHistory();
+
   let sliceData = data.slice(1, 11);
   const indicators = [];
   for (var i = 1; i < 11; i++) {
     indicators.push(<li key={i} data-target="#releasedCarousel" data-slide-to={i}></li>);
   }
 
+  const releasedRedir = () => {
+    setRelease(1);
+    setNameComps("released");
+    // setPage(1);
+    // for (let i = 0; i < 10; i++) {
+    //   pageArray[i] = i + 1;
+    // }
+    history.push(`/games/new/1`);
+  };
+
   return (
     <>
       <div className="row">
         <div className="col-2"></div>
         <div className="col-8">
-          <h3>Recent Released</h3>
+          <div>
+            <h3>
+              Recent Released
+              <span onClick={releasedRedir} className="float-right btn btn-outline-info btn-sm">
+                Browse More
+              </span>
+            </h3>
+          </div>
           <div id="releasedCarousel" className="carousel slide" data-ride="carousel">
             <ol className="carousel-indicators">
               <li data-target="#releasedCarousel" data-slide-to="0" className="active"></li>

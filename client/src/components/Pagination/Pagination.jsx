@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import "./Pages.css"
+import "./Pages.css";
 
-const Pagination = ({ name, page, setPage, pageArray }) => {
+const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
   let filterUrl = `/search=${name}`;
 
   const onPage = (p) => {
@@ -42,7 +42,9 @@ const Pagination = ({ name, page, setPage, pageArray }) => {
         >
           <Link
             onClick={() => onPage(-2)}
-            to={`/games/${page - 1}${name === undefined ? "" : filterUrl}`}
+            to={`/games/${nameComps === "released" ? "new/" : ""}${page - 1}${
+              name === undefined ? "" : filterUrl
+            }`}
             className="page-link"
           >
             Previous
@@ -58,7 +60,9 @@ const Pagination = ({ name, page, setPage, pageArray }) => {
           >
             <Link
               onClick={() => onPage(p)}
-              to={`/games/${p}${name === undefined ? "" : filterUrl}`}
+              to={`/games/${nameComps === "released" ? "new/" : ""}${p}${
+                name === undefined ? "" : filterUrl
+              }`}
               className="page-link"
             >
               {p}
@@ -69,7 +73,9 @@ const Pagination = ({ name, page, setPage, pageArray }) => {
         <li className="page-item">
           <Link
             onClick={() => onPage(-1)}
-            to={`/games/${page + 1}${name === undefined ? "" : filterUrl}`}
+            to={`/games/${nameComps === "released" ? "new/" : ""}${page + 1}${
+              name === undefined ? "" : filterUrl
+            }`}
             className="page-link"
           >
             Next

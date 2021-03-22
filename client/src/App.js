@@ -14,6 +14,8 @@ const App = () => {
   const [filter, setFilter] = useState("");
   const [urlName, setUrlName] = useState("");
   const [pageArray] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [release, setRelease] = useState(0);
+  const [nameComps, setNameComps] = useState("");
 
   return (
     <ApolloProvider client={client}>
@@ -26,9 +28,31 @@ const App = () => {
             setPage={setPage}
             filter={filter}
             setFilter={setFilter}
+            setNameComps={setNameComps}
           />
           <Switch>
-            <ReleasedQuery exact path={"/"} />
+            <ReleasedQuery
+              exact
+              path={"/"}
+              release={release}
+              setRelease={setRelease}
+              num={page}
+              setPage={setPage}
+              pageArray={pageArray}
+              nameComps={nameComps}
+              setNameComps={setNameComps}
+            />
+            <ReleasedQuery
+              exact
+              path={`/games/new/${page}`}
+              release={release}
+              setRelease={setRelease}
+              num={page}
+              setPage={setPage}
+              pageArray={pageArray}
+              nameComps={nameComps}
+              setNameComps={setNameComps}
+            />
             <ItemsQuery
               exact
               path={`/games/${page}`}
@@ -42,6 +66,7 @@ const App = () => {
               num={page}
               setPage={setPage}
               pageArray={pageArray}
+              nameComps={nameComps}
             />
             <Route exact path={`/game/:id/:name`} component={TheGame} />
           </Switch>

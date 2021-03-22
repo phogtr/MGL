@@ -1,6 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import EachItem from "../Items/EachItem";
 import ReleasedReview from "./ReleasedReview";
 
 const RELEASED_QUERY = gql`
@@ -9,14 +10,24 @@ const RELEASED_QUERY = gql`
       results {
         id
         name
+        released
         background_image
+        rating
       }
     }
   }
 `;
 
-const ReleasedQuery = () => {
-  let num = 1;
+const ReleasedQuery = ({
+  num,
+  release,
+  setRelease,
+  setPage,
+  pageArray,
+  nameComps,
+  setNameComps,
+}) => {
+  //let num = 1;
   let today = new Date();
   let month = today.getMonth() + 1;
   let year = today.getFullYear();
@@ -44,12 +55,33 @@ const ReleasedQuery = () => {
     <>
       <Query query={RELEASED_QUERY} variables={{ from, to, num }}>
         {({ loading, error, data }) => {
-          if (loading) return <h4>Loading...</h4>;
+          if (loading) return <h4></h4>;
           if (error) {
             console.log(error);
             return <h4>No Data available</h4>;
           } else {
-            return <ReleasedReview data={data.released.results} />;
+            if (release === 0) {
+              return (
+                <ReleasedReview
+                  release={release}
+                  setRelease={setRelease}
+                  data={data.released.results}
+                  setNameComps={setNameComps}
+                />
+              );
+            } else {
+              let name = undefined;
+              return (
+                <EachItem
+                  name={name}
+                  data={data.released.results}
+                  page={num}
+                  setPage={setPage}
+                  pageArray={pageArray}
+                  nameComps={nameComps}
+                />
+              );
+            }
           }
         }}
       </Query>

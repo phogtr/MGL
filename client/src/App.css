@@ -1,0 +1,15 @@
+.btn-outline-info {
+  border-color: rgb(23, 164, 186, 0.3);
+}
+
+.btn-outline-info:hover {
+  color: rgb(23, 162, 184);
+  border-color: rgb(23, 164, 186);
+  background-color: white;
+}
+
+.btn-outline-info:not(:disabled):not(.disabled):active {
+  color: rgb(23, 162, 184);
+  border-color: rgb(23, 164, 186);
+  background-color: white;
+}
