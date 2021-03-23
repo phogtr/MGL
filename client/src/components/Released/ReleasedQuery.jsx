@@ -7,6 +7,7 @@ import ReleasedReview from "./ReleasedReview";
 const RELEASED_QUERY = gql`
   query ReleasedQuery($from: String!, $to: String!, $num: Int!) {
     released(dateFrom: $from, dateTo: $to, num: $num) {
+      count
       results {
         id
         name
@@ -74,6 +75,7 @@ const ReleasedQuery = ({
               return (
                 <EachItem
                   name={name}
+                  count={data.released.count}
                   data={data.released.results}
                   page={num}
                   setPage={setPage}

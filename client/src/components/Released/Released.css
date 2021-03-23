@@ -9,6 +9,22 @@
   box-shadow: inset 0px -130px 70px 20px rgba(0, 0, 0, 0.7);
 }
 
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
 .float-right {
   float: right;
 }
+
+/* .carousel-item {
+  height: 40vh;
+  background: lightgreen;
+} */
+
+/* .rls-img {
+  height: 40vh;
+  object-fit: cover;
+} */

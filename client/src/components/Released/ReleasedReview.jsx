@@ -19,7 +19,7 @@ const ReleasedReview = ({ release, setRelease, data, setNameComps }) => {
     // for (let i = 0; i < 10; i++) {
     //   pageArray[i] = i + 1;
     // }
-    history.push(`/games/new/1`);
+    history.push(`/games/new/1/`);
   };
 
   return (

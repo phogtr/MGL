@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import "./Pages.css";
 
-const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
-  let filterUrl = `/search=${name}`;
+const Pagination = ({ count, name, page, setPage, pageArray, nameComps }) => {
+  let filterUrl = `search=${name}`;
+  let maxPage = Math.round(Math.floor(count / 20)) + 1;
+  if (maxPage < 10) {
+    pageArray = [];
+    for (let i = 0; i < maxPage; i++) {
+      pageArray[i] = i + 1;
+    }
+  }
+  let finalPage = maxPage - 4;
+  let startFinalPage = maxPage - 9;
 
   const onPage = (p) => {
     if (p === -2) {
@@ -17,6 +26,11 @@ const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
     if (p < 7) {
       for (let i = 0; i < 10; i++) {
         pageArray[i] = i + 1;
+      }
+    } else if (p >= finalPage) {
+      for (let i = 0; i < 10; i++) {
+        pageArray[i] = startFinalPage;
+        startFinalPage++;
       }
     } else {
       let temp = 5;
@@ -42,7 +56,7 @@ const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
         >
           <Link
             onClick={() => onPage(-2)}
-            to={`/games/${nameComps === "released" ? "new/" : ""}${page - 1}${
+            to={`/games/${nameComps === "released" ? "new/" : ""}${page - 1}/${
               name === undefined ? "" : filterUrl
             }`}
             className="page-link"
@@ -60,7 +74,7 @@ const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
           >
             <Link
               onClick={() => onPage(p)}
-              to={`/games/${nameComps === "released" ? "new/" : ""}${p}${
+              to={`/games/${nameComps === "released" ? "new/" : ""}${p}/${
                 name === undefined ? "" : filterUrl
               }`}
               className="page-link"
@@ -70,10 +84,15 @@ const Pagination = ({ name, page, setPage, pageArray, nameComps }) => {
             </Link>
           </li>
         ))}
-        <li className="page-item">
+        <li
+          className={classNames({
+            "page-item disabled": page === maxPage,
+            "page-item": page > 1,
+          })}
+        >
           <Link
             onClick={() => onPage(-1)}
-            to={`/games/${nameComps === "released" ? "new/" : ""}${page + 1}${
+            to={`/games/${nameComps === "released" ? "new/" : ""}${page + 1}/${
               name === undefined ? "" : filterUrl
             }`}
             className="page-link"

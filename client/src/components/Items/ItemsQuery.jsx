@@ -7,6 +7,7 @@ import "./Items.css";
 const PAGE_QUERY = gql`
   query PageQuery($num: Int!) {
     page(num: $num) {
+      count
       results {
         id
         name
@@ -33,6 +34,7 @@ const ItemsQuery = ({ num, setPage, pageArray }) => {
             return (
               <EachItem
                 name={name}
+                count={data.page.count}
                 data={data.page.results}
                 page={num}
                 setPage={setPage}

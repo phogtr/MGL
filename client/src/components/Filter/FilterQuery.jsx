@@ -7,6 +7,7 @@ import "./Filter.css";
 const FILTER_QUERY = gql`
   query FilterQuery($num: Int!, $filter: String!) {
     filter(num: $num, name: $filter) {
+      count
       results {
         id
         name
@@ -32,6 +33,7 @@ const FilterQuery = ({ num, filter, setPage, pageArray, nameComps }) => {
             return (
               <EachItem
                 name={filter}
+                count={data.filter.count}
                 data={data.filter.results}
                 page={num}
                 setPage={setPage}

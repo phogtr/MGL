@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import "./Items.css";
 
-const EachItem = ({ name, data, page, setPage, pageArray, nameComps }) => {
+const EachItem = ({ name, count, data, page, setPage, pageArray, nameComps }) => {
   return (
     <>
       <div className="items-list">
@@ -22,6 +22,7 @@ const EachItem = ({ name, data, page, setPage, pageArray, nameComps }) => {
           </Link>
         ))}
         <Pagination
+          count={count}
           name={name}
           page={page}
           setPage={setPage}

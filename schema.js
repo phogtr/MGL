@@ -14,6 +14,7 @@ const {
 const PageType = new GraphQLObjectType({
   name: "Page",
   fields: () => ({
+    count: { type: GraphQLInt },
     results: { type: new GraphQLList(GamesType) },
   }),
 });

@@ -37,18 +37,18 @@ const Navbar = ({ setPage, setFilter, setUrlName, pageArray, setRelease, setName
             </Link>
           </li>
         </ul>
-        <ul className="navbar-nav justify-content-end">
-          {/* <li className="nav-item">
+        {/* <ul className="navbar-nav justify-content-end">
+          <li className="nav-item">
             <a className="nav-link" href="#">
               Right <span className="sr-only">(current)</span>
             </a>
-          </li> */}
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to="#">
               Login <span className="sr-only">(current)</span>
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </nav>
   );
