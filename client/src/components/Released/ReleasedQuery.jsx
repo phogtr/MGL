@@ -29,27 +29,14 @@ const ReleasedQuery = ({
   setNameComps,
 }) => {
   let today = new Date();
+  let date = today.getDate();
   let month = today.getMonth() + 1;
   let year = today.getFullYear();
   month = month !== 1 ? month - 1 : month;
   let stringMonth = String(month).padStart(2, "0");
-  let from = year + "-" + stringMonth + "-01"; // 2021-02-01
-  let to = "";
-  if (month === 2) {
-    to = year + "-02-28"; // 2021-02-28
-  } else if (
-    month === 1 ||
-    month === 3 ||
-    month === 5 ||
-    month === 7 ||
-    month === 8 ||
-    month === 10 ||
-    month === 12
-  ) {
-    to = year + "-" + stringMonth + "-31"; // 2021-03-31
-  } else {
-    to = year + "-" + stringMonth + "-30"; // 2021-11-30
-  }
+  let from = year + "-" + stringMonth + "-01"; // 2021-02-01 => starting from last month
+  month++;
+  let to = year + "-" + String(month).padStart(2, "0") + "-" + String(date).padStart(2, "0"); // up until today
 
   return (
     <>
