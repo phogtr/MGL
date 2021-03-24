@@ -1,5 +1,5 @@
 .filter-icon:hover {
-  background-color: #ffbb00;
+  background-color: #5a4eb4;
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -10,4 +10,9 @@
 
 .filter-header {
   padding-bottom: 20px;
+}
+
+.form-control {
+  border-color: #5a4eb4;
+  color: #22202f;
 }

@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 120px 2fr 1fr;
   margin-bottom: 5px;
-  border: 1px solid #cccccc;
+  border: 1px solid #22202f;
+  background-color: #22202f;
 }
 
 .content-img {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = ({ setPage, setFilter, setUrlName, pageArray, setRelease, setNameComps }) => {
   const resetState = () => {
@@ -14,7 +15,7 @@ const Navbar = ({ setPage, setFilter, setUrlName, pageArray, setRelease, setName
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark nav-bg">
       <button
         className="navbar-toggler"
         type="button"
@@ -24,18 +25,18 @@ const Navbar = ({ setPage, setFilter, setUrlName, pageArray, setRelease, setName
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarToggler">
-        <ul className="navbar-nav mr-auto">
+      <div className="collapse navbar-collapse hLine" id="navbarToggler">
+        <ul className="navbar-nav nav-justified mr-auto">
           <li className="nav-item active">
             <Link className="nav-link" to="/" onClick={resetState}>
-              Home <span className="sr-only">(current)</span>
+              <span className="text-color">Home</span> <span className="sr-only">(current)</span>
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/">
               About <span className="sr-only">(current)</span>
             </Link>
-          </li>
+          </li> */}
         </ul>
         {/* <ul className="navbar-nav justify-content-end">
           <li className="nav-item">

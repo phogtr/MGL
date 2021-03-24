@@ -28,7 +28,7 @@ const ReleasedReview = ({ release, setRelease, data, setNameComps }) => {
         <div className="col-2"></div>
         <div className="col-8">
           <div>
-            <h3>
+            <h3 className="heading-text">
               Recent Released
               <span onClick={releasedRedir} className="float-right btn btn-outline-info btn-sm">
                 Browse More
@@ -48,7 +48,7 @@ const ReleasedReview = ({ release, setRelease, data, setNameComps }) => {
                     src={data[0].background_image}
                     alt={`${data[0].name}`}
                   />
-                  <div className="carousel-caption d-none d-md-block">
+                  <div className="text-color carousel-caption d-md-block">
                     <h5>{data[0].name}</h5>
                   </div>
                 </Link>
@@ -61,7 +61,7 @@ const ReleasedReview = ({ release, setRelease, data, setNameComps }) => {
                       src={game.background_image}
                       alt={`${game.name}`}
                     />
-                    <div className="carousel-caption d-none d-md-block">
+                    <div className="text-color carousel-caption d-md-block">
                       <h5>{game.name}</h5>
                     </div>
                   </Link>

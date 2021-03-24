@@ -2,10 +2,17 @@
   padding-bottom: 7px;
 }
 
+.img-box {
+  border: 1px solid #5a4eb4;
+  border-radius: 3px;
+  margin-bottom: 7px;
+}
+
 .info-box {
-  border: 1px solid black;
+  border: 1px solid #5a4eb4;
   border-radius: 3px;
   padding-left: 10px;
+  padding-right: 3px;
 }
 
 .embed-responsive {
@@ -19,12 +26,16 @@
 }
 
 .link-text {
-  color: blue;
+  color: #d4d3de;
 }
 
 .link-text:hover {
-  color: blue;
+  color: #d4d3de;
   text-decoration: underline;
+}
+
+.desc {
+  padding-top: 30px;
 }
 
 @media (max-width: 790px) {

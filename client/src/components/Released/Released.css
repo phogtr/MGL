@@ -9,22 +9,39 @@
   box-shadow: inset 0px -130px 70px 20px rgba(0, 0, 0, 0.7);
 }
 
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
-  display: block;
-}
-
 .float-right {
   float: right;
 }
 
-/* .carousel-item {
+.carousel-item {
   height: 40vh;
-  background: lightgreen;
-} */
+}
 
-/* .rls-img {
+.rls-img {
   height: 40vh;
   object-fit: cover;
-} */
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .col-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  /* .container {
+    max-width: 100%;
+  } */
+}
+
+@media (max-width: 576px) {
+  .carousel-caption h5 {
+    font-size: 1rem;
+    font-weight: 100;
+  }
+}

@@ -8,17 +8,27 @@ const EachItem = ({ name, count, data, page, setPage, pageArray, nameComps }) =>
     <>
       <div className="items-list">
         {data.map((game) => (
-          <Link to={`/game/${game.id}/${game.name}`} key={game.id} className="items-block">
+          <Link
+            to={`/game/${game.id}/${game.name}`}
+            key={game.id}
+            className="text-color items-block"
+          >
             <div>
               <img src={game.background_image} alt={`${game.name}`} className="content-img" />
             </div>
             <div className="item-info text-overflow">
               <span className="text-overflow">{game.name}</span>
-              <div>{game.released}</div>
+              <div>{new Date(game.released).toDateString().substring(4)}</div>
             </div>
-            <div className="item-score">
-              <span className="item-rating">{game.rating === 0 ? "" : game.rating}</span>
-            </div>
+            {game.rating !== 0 ? (
+              <div className="item-score">
+                <span className="item-rating">
+                  {game.rating} <i className="far fa-star"></i>
+                </span>
+              </div>
+            ) : (
+              <></>
+            )}
           </Link>
         ))}
         <Pagination

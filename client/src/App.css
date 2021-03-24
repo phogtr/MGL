@@ -1,15 +1,28 @@
 .btn-outline-info {
-  border-color: rgb(23, 164, 186, 0.3);
+  border-color: #5a4eb4;
+  color: #d4d3de;
 }
 
 .btn-outline-info:hover {
-  color: rgb(23, 162, 184);
-  border-color: rgb(23, 164, 186);
-  background-color: white;
+  border-color: #5a4eb4;
+  color: #d4d3de;
+  background-color: #5a4eb4;
 }
 
 .btn-outline-info:not(:disabled):not(.disabled):active {
-  color: rgb(23, 162, 184);
-  border-color: rgb(23, 164, 186);
-  background-color: white;
+  border-color: #5a4eb4;
+  color: #d4d3de;
+  background-color: #5a4eb4;
+}
+
+.heading-text {
+  color: #5a4eb4;
+}
+
+.text-color {
+  color: #d4d3de;
+}
+
+.custom-dark {
+  color: #22202f;
 }

@@ -40,13 +40,13 @@ const ReleasedQuery = ({
 
   return (
     <>
-      {release === 0 ? "" : <h3 className="item-header">Recent Released</h3>}
+      {release === 0 ? <></> : <h3 className="heading-text item-header">Recent Released</h3>}
       <Query query={RELEASED_QUERY} variables={{ from, to, num }}>
         {({ loading, error, data }) => {
           if (loading) return <></>;
           if (error) {
             console.log(error);
-            return <h4>No Data available</h4>;
+            return <h4 className="heading-text">No Data available</h4>;
           } else {
             if (release === 0) {
               return (

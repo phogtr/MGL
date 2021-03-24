@@ -42,10 +42,10 @@ const TheGame = (props) => {
     <>
       <Query query={THEGAME_QUERY} variables={{ queryId }}>
         {({ loading, error, data }) => {
-          if (loading) return <h4>Loading...</h4>;
+          if (loading) return <h4 className="heading-text">Loading...</h4>;
           if (error) {
             console.log(error);
-            return <h4>No Data available</h4>;
+            return <h4 className="heading-text">No Data available</h4>;
           } else {
             return <GameInfo data={data.game} />;
           }

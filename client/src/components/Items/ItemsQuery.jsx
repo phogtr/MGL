@@ -22,13 +22,13 @@ const PAGE_QUERY = gql`
 const ItemsQuery = ({ num, setPage, pageArray }) => {
   return (
     <>
-      <h3 className="item-header">All Games</h3>
+      <h3 className="heading-text item-header">All Games</h3>
       <Query query={PAGE_QUERY} variables={{ num }}>
         {({ loading, error, data }) => {
-          if (loading) return <h4>Loading...</h4>;
+          if (loading) return <h4 className="heading-text">Loading...</h4>;
           if (error) {
             console.log(error);
-            return <h4>No Data available</h4>;
+            return <h4 className="heading-text">No Data available</h4>;
           } else {
             let name = undefined;
             return (
