@@ -149,7 +149,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&page=${args.num}`
+            `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&key=${process.env.MY_KEY}&page=${args.num}`
           )
           .then((res) => res.data);
       },
@@ -163,4 +163,3 @@ module.exports = new GraphQLSchema({
 
 // released within month https://api.rawg.io/api/games?dates=2019-09-01,2019-09-30
 // popular within month/year https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added
-// `https://api.rawg.io/api/games?dates=${args.dateFrom}%2C${args.dateTo}&key=${process.env.MY_KEY}&page=${args.num}`
