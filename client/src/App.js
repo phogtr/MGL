@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FilterQuery, FilterForm, ItemsQuery, Navbar, TheGame, ReleasedQuery } from "./components";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  uri: "/graphql",
 });
 
 const App = () => {
