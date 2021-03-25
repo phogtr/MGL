@@ -12,7 +12,13 @@
   padding-bottom: 20px;
 }
 
-.form-control {
+.form-control,
+.form-control:focus {
+  color: #d4d3de;
   border-color: #5a4eb4;
-  color: #22202f;
+  background-color: #22202f;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }

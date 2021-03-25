@@ -2,3 +2,56 @@
   padding-top: 20px;
   justify-content: center;
 }
+
+.page-link {
+  color: #d4d3de;
+  border-color: #5a4eb4;
+  background-color: #22202f;
+}
+
+.page-link:hover,
+.page-item.active .page-link {
+  color: #d4d3de;
+  border-color: #5a4eb4;
+  background-color: #5a4eb4;
+}
+
+.page-item.disabled .page-link {
+  border-color: #5a4eb4;
+  background-color: rgb(34, 32, 47, 0.3);
+}
+
+.arrow-pg {
+  background-color: #2d2c38;
+}
+
+@media (max-width: 720px) {
+  .hide-display {
+    display: none;
+  }
+
+  .dot-before {
+    padding-right: 2rem;
+  }
+
+  .dot-before::after,
+  .dot-after::after {
+    content: "...";
+    font-size: 1.7rem;
+    position: relative;
+    color: #d4d3de;
+    display: block;
+    left: 2.2rem;
+    bottom: 1.95rem;
+    white-space: nowrap;
+  }
+
+  .dot-after {
+    padding-right: 2rem;
+  }
+
+  .page-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

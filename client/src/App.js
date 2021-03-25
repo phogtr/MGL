@@ -3,7 +3,6 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FilterQuery, FilterForm, ItemsQuery, Navbar, TheGame, ReleasedQuery } from "./components";
-import "./App.css";
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",

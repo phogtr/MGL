@@ -75,7 +75,7 @@ const GameInfo = ({ data }) => {
             <div>
               <b className="heading-text">Rating:</b>{" "}
               <span className="text-color">
-                {data.rating} <i className="far fa-star"></i>
+                {data.rating} <i className="fas fa-star"></i>
               </span>
             </div>
             <div>

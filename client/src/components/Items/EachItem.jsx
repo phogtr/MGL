@@ -23,7 +23,7 @@ const EachItem = ({ name, count, data, page, setPage, pageArray, nameComps }) =>
             {game.rating !== 0 ? (
               <div className="item-score">
                 <span className="item-rating">
-                  {game.rating} <i className="far fa-star"></i>
+                  {game.rating} <i className="fas fa-star"></i>
                 </span>
               </div>
             ) : (

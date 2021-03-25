@@ -25,3 +25,32 @@ a:hover {
   color: #d4d3de;
   background-color: rgb(34, 32, 47, 0.3);
 }
+
+.btn-outline-info {
+  border-color: #5a4eb4;
+  color: #d4d3de;
+}
+
+.btn-outline-info:hover {
+  border-color: #5a4eb4;
+  color: #d4d3de;
+  background-color: #5a4eb4;
+}
+
+.btn-outline-info:not(:disabled):not(.disabled):active {
+  border-color: #5a4eb4;
+  color: #d4d3de;
+  background-color: #5a4eb4;
+}
+
+.heading-text {
+  color: #5a4eb4;
+}
+
+.text-color {
+  color: #d4d3de;
+}
+
+.custom-dark {
+  color: #22202f;
+}

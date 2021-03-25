@@ -59,17 +59,28 @@ const Pagination = ({ count, name, page, setPage, pageArray, nameComps }) => {
             to={`/games/${nameComps === "released" ? "new/" : ""}${page - 1}/${
               name === undefined ? "" : filterUrl
             }`}
-            className="page-link"
+            className="arrow-pg page-link"
           >
-            Previous
+            &larr;
           </Link>
         </li>
-        {pageArray.map((p) => (
+        {pageArray.map((p, idx) => (
           <li
             key={p}
             className={classNames({
               "page-item active": p === page,
               "page-item": p !== page,
+              "hide-display":
+                maxPage > 6 &&
+                p !== page &&
+                idx !== 0 &&
+                idx !== 1 &&
+                idx !== 9 &&
+                idx !== 8 &&
+                idx !== maxPage - 1 &&
+                idx !== maxPage - 2,
+              "dot-before": idx === 1 && maxPage > 6,
+              "dot-after": p === page && idx > 1 && p < maxPage - 1 && maxPage > 6,
             })}
           >
             <Link
@@ -87,7 +98,7 @@ const Pagination = ({ count, name, page, setPage, pageArray, nameComps }) => {
         <li
           className={classNames({
             "page-item disabled": page === maxPage,
-            "page-item": page > 1,
+            "page-item": page >= 1,
           })}
         >
           <Link
@@ -95,9 +106,9 @@ const Pagination = ({ count, name, page, setPage, pageArray, nameComps }) => {
             to={`/games/${nameComps === "released" ? "new/" : ""}${page + 1}/${
               name === undefined ? "" : filterUrl
             }`}
-            className="page-link"
+            className="arrow-pg page-link"
           >
-            Next
+            &rarr;
           </Link>
         </li>
       </ul>
