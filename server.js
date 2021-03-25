@@ -19,7 +19,9 @@ app.use(
   })
 );
 
-if (process.env.NODE_ENV === "production") {
+var environment = app.get("env");
+
+if (environment === "production") {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
