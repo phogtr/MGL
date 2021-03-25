@@ -16,6 +16,7 @@ const App = () => {
   const [release, setRelease] = useState(0);
   const [nameComps, setNameComps] = useState("");
 
+  console.log(client);
   return (
     <ApolloProvider client={client}>
       <Router>
