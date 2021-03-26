@@ -1,4 +1,4 @@
-export { default as Navbar } from "./Navbar";
+export { default as Navbar } from "./Navbar/Navbar";
 export { default as FilterForm } from "./Filter/FilterForm";
 export { default as FilterQuery } from "./Filter/FilterQuery";
 export { default as ItemsQuery } from "./Items/ItemsQuery";
